@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+#
+# TmSnippetsConverter
+# Quick and dirty code to transform TextMate Snippets into Gedit, NetBeans and Ruble (Aptana Studio) snippets
+# Based on tmsnippets2gedit (http://github.com/spyou/tmsnippets2gedit)
+#
+# Copyright (c) 2009 Nicolas Alpi
+# Copyright (c) 2010 Nowhere Man
+#
+# Last update 29 April 2010
+#
+# TmSnippetsConverter is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+#
+# TmSnippetsConverter is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+# warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with TmSnippetsConverter; if not, write to the
+# Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
+
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'snippets_converter'
+
+snippet_converter = SnippetsConverter.new
+snippet_converter.run(*ARGV)

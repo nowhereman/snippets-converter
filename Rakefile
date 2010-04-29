@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'rubygems'
 require 'rake'
 
@@ -5,8 +6,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "snippets_converter"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "Convert TextMate Snippets Gedit, NetBeans and Ruble (Aptana Studio) Snippets."
+    gem.description = "Quick and dirty code to transform TextMate Snippets into Gedit, NetBeans and Ruble (Aptana Studio) snippets"
     gem.email = "nowhereman@open_office"
     gem.homepage = "http://github.com/nowhereman/snippets_converter"
     gem.authors = ["Nowhere Man"]
@@ -46,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   if File.exist?('VERSION')
     version = File.read('VERSION')
   else
-    version = ""
+    version = "0.1.0"
   end
 
   rdoc.rdoc_dir = 'rdoc'

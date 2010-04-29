@@ -1,6 +1,31 @@
 = snippets_converter
 
-Description goes here.
+Convert TextMate Snippets into into Gedit, NetBeans and Ruble (Aptana Studio) snippets.
+
+== How to use (for Ubuntu)
+
+Copy your TextMate Snippets directory into the _tmsnippets_converter_ folder, run 
+    ruby tmsnippets_converter.rb
+This will convert all you need and create a XML file.
+
+== Gedit
+Put the *gedit_snippet.xml* file into
+
+_/home/username/.gnome2/gedit/snippets_ folder
+
+
+== NetBeans
+Put the _org-netbeans-modules-editor-settings-CustomCodeTemplates.xml_ file into
+
+_/home/username/.netbeans/6.8/config/Editors/text/x-ruby/CodeTemplates_ folder
+
+== Ruble
+ TODO
+
+== Dependencies
+
+you'll need ActiveSupport and Nokogiri gems in order to use this gem, so :
+    sudo gem install active_support nokogiri
 
 == Note on Patches/Pull Requests
  
@@ -15,4 +40,5 @@ Description goes here.
 
 == Copyright
 
+Copyright (c) 2009 Nicolas Alpi.
 Copyright (c) 2010 Nowhere Man. See LICENSE for details.

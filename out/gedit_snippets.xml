@@ -1,0 +1,398 @@
+  <?xml version='1.0' encoding='utf-8'?>
+  <snippets language="[LANGUAGE]">
+    <snippet id="shbt">
+      <tag>shbt</tag>
+      <description><![CDATA[should_belong_to]]></description>
+      <text><![CDATA[should_belong_to :${1:object}]]></text>
+    </snippet>
+    <snippet id="shhdi">
+      <tag>shhdi</tag>
+      <description><![CDATA[should_have_db_indices]]></description>
+      <text><![CDATA[should_have_db_indices :${1:column}, :${3:column}, :${5:column}]]></text>
+    </snippet>
+    <snippet id="shhabtm">
+      <tag>shhabtm</tag>
+      <description><![CDATA[should_have_and_belong_to_many]]></description>
+      <text><![CDATA[should_have_and_belong_to_many :${1:object}, :${3:object}, :${5:object}]]></text>
+    </snippet>
+    <snippet id="shrfs">
+      <tag>shrfs</tag>
+      <description><![CDATA[should_return_from_session]]></description>
+      <text><![CDATA[should_return_from_session :${1:user}, "@${1:user}"]]></text>
+    </snippet>
+    <snippet id="asdnc">
+      <tag>asdnc</tag>
+      <description><![CDATA[assert_does_not_contain]]></description>
+      <text><![CDATA[assert_does_not_contain(${1:collection}, /${3:x}/, "${5:extra_msg}")]]></text>
+    </snippet>
+    <snippet id="shrl">
+      <tag>shrl</tag>
+      <description><![CDATA[should_render_with_layout]]></description>
+      <text><![CDATA[should_render_with_layout '${2:layout}']]></text>
+    </snippet>
+    <snippet id="facd">
+      <tag>facd</tag>
+      <description><![CDATA[Factory.define with class]]></description>
+      <text><![CDATA[Factory.define :${1:model}, :class => ${3:ClassName} do |f|
+  f.$0
+end]]></text>
+    </snippet>
+    <snippet id="assave">
+      <tag>assave</tag>
+      <description><![CDATA[assert_save]]></description>
+      <text><![CDATA[assert_save ${1:object}	]]></text>
+    </snippet>
+    <snippet id="shhra">
+      <tag>shhra</tag>
+      <description><![CDATA[should_have_readonly_attributes]]></description>
+      <text><![CDATA[should_have_readonly_attributes :${1:method}, :${3:method}, :${5:method}]]></text>
+    </snippet>
+    <snippet id="shc">
+      <tag>shc</tag>
+      <description><![CDATA[should_change from to]]></description>
+      <text><![CDATA[should_change("${1:description}", :from => "${5:old_value}", :to => "${8:new_value}") { ${10:Model}.${11:count} }$0]]></text>
+    </snippet>
+    <snippet id="shamao">
+      <tag>shamao</tag>
+      <description><![CDATA[should_allow_mass_assignment_of]]></description>
+      <text><![CDATA[should_allow_mass_assignment_of :${1:attribute}, :${3:attribute}, :${5:attribute}]]></text>
+    </snippet>
+    <snippet id="shraf">
+      <tag>shraf</tag>
+      <description><![CDATA[should_render_a_form]]></description>
+      <text><![CDATA[should_render_a_form]]></text>
+    </snippet>
+    <snippet id="shc">
+      <tag>shc</tag>
+      <description><![CDATA[should_change by]]></description>
+      <text><![CDATA[should_change("${1:description}", :by => "${4:value}") { ${6:Model}.${7:count} }$0]]></text>
+    </snippet>
+    <snippet id="sh">
+      <tag>sh</tag>
+      <description><![CDATA[should block]]></description>
+      <text><![CDATA[should "$1" do
+  $0
+end]]></text>
+    </snippet>
+    <snippet id="shhdi">
+      <tag>shhdi</tag>
+      <description><![CDATA[should_have_db_index]]></description>
+      <text><![CDATA[should_have_db_index :${1:column}]]></text>
+    </snippet>
+    <snippet id="shnamao">
+      <tag>shnamao</tag>
+      <description><![CDATA[should_not_allow_mass_assignment_of]]></description>
+      <text><![CDATA[should_not_allow_mass_assignment_of :${1:attribute}, :${3:attribute}, :${5:attribute}]]></text>
+    </snippet>
+    <snippet id="shhcm">
+      <tag>shhcm</tag>
+      <description><![CDATA[should_have_class_methods]]></description>
+      <text><![CDATA[should_have_class_methods :${1:method}, :${3:method}, :${5:method}]]></text>
+    </snippet>
+    <snippet id="shrw">
+      <tag>shrw</tag>
+      <description><![CDATA[should_respond_with]]></description>
+      <text><![CDATA[should_respond_with :${1:success}$0]]></text>
+    </snippet>
+    <snippet id="shsf">
+      <tag>shsf</tag>
+      <description><![CDATA[should_set_the_flash_to]]></description>
+      <text><![CDATA[should_set_the_flash_to ${1:value}]]></text>
+    </snippet>
+    <snippet id="she">
+      <tag>she</tag>
+      <description><![CDATA[should_eventually]]></description>
+      <text><![CDATA[should_eventually "$1" do
+  $0
+end]]></text>
+    </snippet>
+    <snippet id="shnsf">
+      <tag>shnsf</tag>
+      <description><![CDATA[should_not_set_the_flash]]></description>
+      <text><![CDATA[should_not_set_the_flash]]></text>
+    </snippet>
+    <snippet id="shnc">
+      <tag>shnc</tag>
+      <description><![CDATA[should_not_change]]></description>
+      <text><![CDATA[should_not_change("${1:description}") { ${2:Model}.${3:count} }$0]]></text>
+    </snippet>
+    <snippet id="facs">
+      <tag>facs</tag>
+      <description><![CDATA[Factory.sequence]]></description>
+      <text><![CDATA[Factory.sequence :${1:name} do |n|
+  $0
+end]]></text>
+    </snippet>
+    <snippet id="shhm">
+      <tag>shhm</tag>
+      <description><![CDATA[should_have_many]]></description>
+      <text><![CDATA[should_have_many :${1:objects}, :through => :${4:association}, :dependent => :${6:destroy}$0]]></text>
+    </snippet>
+    <snippet id="shna">
+      <tag>shna</tag>
+      <description><![CDATA[should_not_assign_to]]></description>
+      <text><![CDATA[should_not_assign_to :${1:name}, :${3:name}, :${5:name}]]></text>
+    </snippet>
+    <snippet id="shvno">
+      <tag>shvno</tag>
+      <description><![CDATA[should_validate_numericality_of]]></description>
+      <text><![CDATA[should_validate_numericality_of :${1:attribute}]]></text>
+    </snippet>
+    <snippet id="shel">
+      <tag>shel</tag>
+      <description><![CDATA[should_ensure_length_in_range]]></description>
+      <text><![CDATA[should_ensure_length_in_range :${1:attribute}, (${2:range})]]></text>
+    </snippet>
+    <snippet id="shrr">
+      <tag>shrr</tag>
+      <description><![CDATA[should_restfully_route]]></description>
+      <text><![CDATA[context "when routing" do
+  should_route :get,    "/${1:brands}",        :controller => :$1, :action => :index
+  should_route :get,    "/$1/1",      :controller => :$1, :action => :show,    :id => 1
+  should_route :get,    "/$1/1/edit", :controller => :$1, :action => :edit,    :id => 1
+  should_route :get,    "/$1/new",    :controller => :$1, :action => :new
+  should_route :post,   "/$1",        :controller => :$1, :action => :create
+  should_route :put,    "/$1/1",      :controller => :$1, :action => :update,  :id => 1
+  should_route :delete, "/$1/1",      :controller => :$1, :action => :destroy, :id => 1
+end$0]]></text>
+    </snippet>
+    <snippet id="shrl">
+      <tag>shrl</tag>
+      <description><![CDATA[should_render_without_layout]]></description>
+      <text><![CDATA[should_render_without_layout]]></text>
+    </snippet>
+    <snippet id="asse">
+      <tag>asse</tag>
+      <description><![CDATA[assert_same_elements]]></description>
+      <text><![CDATA[assert_same_elements(${1:array1}, ${2:array2}, "${4:message}")]]></text>
+    </snippet>
+    <snippet id="assemail">
+      <tag>assemail</tag>
+      <description><![CDATA[assert_sent_email]]></description>
+      <text><![CDATA[assert_sent_email do |email|
+  email.${2:subject|from|to|body}|${2:subject|from|to|body}|${2:subject|from|to|body}|${2:subject|from|to|body} ${3:==} '${5:anything}':tab_s${2:subject|from|to|body}p0:
+end]]></text>
+    </snippet>
+    <snippet id="shnav">
+      <tag>shnav</tag>
+      <description><![CDATA[should_not_allow_values_for]]></description>
+      <text><![CDATA[should_not_allow_values_for :${1:attribute}, "$2", "$4", "$6"]]></text>
+    </snippet>
+    <snippet id="asbv">
+      <tag>asbv</tag>
+      <description><![CDATA[assert_bad_value]]></description>
+      <text><![CDATA[assert_bad_value(${2:Model}, :${3:attribute}, ${4:value}, /${6:message_to_expect}/)]]></text>
+    </snippet>
+    <snippet id="shrt">
+      <tag>shrt</tag>
+      <description><![CDATA[should_render_template]]></description>
+      <text><![CDATA[should_render_template :${1:template}]]></text>
+    </snippet>
+    <snippet id="faca">
+      <tag>faca</tag>
+      <description><![CDATA[Factory attributes for]]></description>
+      <text><![CDATA[Factory.attributes_for(:${1:model})]]></text>
+    </snippet>
+    <snippet id="shb">
+      <tag>shb</tag>
+      <description><![CDATA[should block with before proc]]></description>
+      <text><![CDATA[should "$1", :before => lambda { ${3:any_code} \} do
+  $0
+end]]></text>
+    </snippet>
+    <snippet id="shav">
+      <tag>shav</tag>
+      <description><![CDATA[should_allow_values_for]]></description>
+      <text><![CDATA[should_allow_values_for :${1:attribute}, "$2", "$4", "$6"]]></text>
+    </snippet>
+    <snippet id="f">
+      <tag>f</tag>
+      <description><![CDATA[attribute]]></description>
+      <text><![CDATA[f.${1:attribute} '${3:value}'
+f.$0]]></text>
+    </snippet>
+    <snippet id="shcre">
+      <tag>shcre</tag>
+      <description><![CDATA[should_create]]></description>
+      <text><![CDATA[should_create :${1:model}$0]]></text>
+    </snippet>
+    <snippet id="shhim">
+      <tag>shhim</tag>
+      <description><![CDATA[should_have_instance_methods]]></description>
+      <text><![CDATA[should_have_instance_methods :${1:method}, :${3:method}, :${5:method}]]></text>
+    </snippet>
+    <snippet id="cont">
+      <tag>cont</tag>
+      <description><![CDATA[context block with setup]]></description>
+      <text><![CDATA[context "${1:description}" do
+  setup do
+    $3
+  end
+
+  should "${4:description}" do
+    $0
+  end
+end
+]]></text>
+    </snippet>
+    <snippet id="fac">
+      <tag>fac</tag>
+      <description><![CDATA[Factory]]></description>
+      <text><![CDATA[Factory(:${1:model})]]></text>
+    </snippet>
+    <snippet id="contg">
+      <tag>contg</tag>
+      <description><![CDATA[context block get]]></description>
+      <text><![CDATA[context "on GET to :${1:show}" do
+  setup { get :$1, :id => ${3:1} }
+
+  should "${5:description}" do
+    $0
+  end
+end]]></text>
+    </snippet>
+    <snippet id="facd">
+      <tag>facd</tag>
+      <description><![CDATA[Factory.define]]></description>
+      <text><![CDATA[Factory.define :${1:model} do |f|
+  f.$0
+end]]></text>
+    </snippet>
+    <snippet id="fa">
+      <tag>fa</tag>
+      <description><![CDATA[association]]></description>
+      <text><![CDATA[f.association :${1:name}, :factory => :${3:factory_name}
+f.$0]]></text>
+    </snippet>
+    <snippet id="sher">
+      <tag>sher</tag>
+      <description><![CDATA[should_ensure_value_in_range]]></description>
+      <text><![CDATA[should_ensure_value_in_range :${1:attribute}, (${2:range})]]></text>
+    </snippet>
+    <snippet id="shvao">
+      <tag>shvao</tag>
+      <description><![CDATA[should_validate_acceptance_of]]></description>
+      <text><![CDATA[should_validate_acceptance_of :${1:attribute}]]></text>
+    </snippet>
+    <snippet id="shvuo">
+      <tag>shvuo</tag>
+      <description><![CDATA[should_validate_uniqueness_of with scope]]></description>
+      <text><![CDATA[should_validate_uniqueness_of :${1:method}, :scoped_to => [:${4:column_id}, :${5:column_type}]]]></text>
+    </snippet>
+    <snippet id="shde">
+      <tag>shde</tag>
+      <description><![CDATA[should_destroy]]></description>
+      <text><![CDATA[should_destroy :${1:model}$0]]></text>
+    </snippet>
+    <snippet id="shho">
+      <tag>shho</tag>
+      <description><![CDATA[should_have_one]]></description>
+      <text><![CDATA[should_have_one :${1:object}, :dependent => :${3:destroy}]]></text>
+    </snippet>
+    <snippet id="shel">
+      <tag>shel</tag>
+      <description><![CDATA[should_ensure_length_is]]></description>
+      <text><![CDATA[should_ensure_length_is :${1:attribute}, ${2:length}]]></text>
+    </snippet>
+    <snippet id="shvpo">
+      <tag>shvpo</tag>
+      <description><![CDATA[should_validate_presence_of]]></description>
+      <text><![CDATA[should_validate_presence_of :${1:method}, :${3:method}, :${5:method}]]></text>
+    </snippet>
+    <snippet id="shre">
+      <tag>shre</tag>
+      <description><![CDATA[should_redirect_to]]></description>
+      <text><![CDATA[should_redirect_to("${1:a page}") { ${3:user}s_url(@$3) }]]></text>
+    </snippet>
+    <snippet id="contp">
+      <tag>contp</tag>
+      <description><![CDATA[context block post]]></description>
+      <text><![CDATA[context "on POST to :${1:create}" do
+  setup { post :$1, :${2:user} => { :${4:key} => ${5:value}, :${7:key} => ${8:value} } }
+
+  should "${10:description}" do
+    $0
+  end
+end
+]]></text>
+    </snippet>
+    <snippet id="shhdc">
+      <tag>shhdc</tag>
+      <description><![CDATA[should_have_db_columns]]></description>
+      <text><![CDATA[should_have_db_columns :${1:column}, :${3:column}, :${5:column}]]></text>
+    </snippet>
+    <snippet id="setup">
+      <tag>setup</tag>
+      <description><![CDATA[setup]]></description>
+      <text><![CDATA[setup do
+	$0
+end]]></text>
+    </snippet>
+    <snippet id="asv">
+      <tag>asv</tag>
+      <description><![CDATA[assert_valid]]></description>
+      <text><![CDATA[assert_valid ${1:object}]]></text>
+    </snippet>
+    <snippet id="shhdc">
+      <tag>shhdc</tag>
+      <description><![CDATA[should_have_db_column]]></description>
+      <text><![CDATA[should_have_db_column :${1:name}, :${3:type} => "${5:string}", :${7:default} => ${8:nil}]]></text>
+    </snippet>
+    <snippet id="facb">
+      <tag>facb</tag>
+      <description><![CDATA[Factory build]]></description>
+      <text><![CDATA[Factory.build(:${1:model})]]></text>
+    </snippet>
+    <snippet id="sha">
+      <tag>sha</tag>
+      <description><![CDATA[should_assign_to]]></description>
+      <text><![CDATA[should_assign_to(:${1:name}) { @$1 \}$0]]></text>
+    </snippet>
+    <snippet id="asc">
+      <tag>asc</tag>
+      <description><![CDATA[assert_contains]]></description>
+      <text><![CDATA[assert_contains(${1:collection}, /${3:x}/, "${5:extra_msg}")]]></text>
+    </snippet>
+    <snippet id="shrw">
+      <tag>shrw</tag>
+      <description><![CDATA[should_respond_with_content_type]]></description>
+      <text><![CDATA[should_respond_with_content_type :${1:rss}]]></text>
+    </snippet>
+    <snippet id="shel">
+      <tag>shel</tag>
+      <description><![CDATA[should_ensure_length_at_least]]></description>
+      <text><![CDATA[should_ensure_length_at_least :${1:attribute}, ${2:min_length}]]></text>
+    </snippet>
+    <snippet id="facn">
+      <tag>facn</tag>
+      <description><![CDATA[Factory.next]]></description>
+      <text><![CDATA[Factory.next(:${1:sequence})]]></text>
+    </snippet>
+    <snippet id="shfp">
+      <tag>shfp</tag>
+      <description><![CDATA[should_filter_params]]></description>
+      <text><![CDATA[should_filter_params :${1:key}, :${3:key}, :${5:key}]]></text>
+    </snippet>
+    <snippet id="shr">
+      <tag>shr</tag>
+      <description><![CDATA[should_route]]></description>
+      <text><![CDATA[should_route :${1:get|post|put|delete}|${1:get|post|put|delete}|${1:get|post|put|delete}|${1:get|post|put|delete}, "/${1:get|post|put|delete}s", :controller => :$3, :action => :${7:create}, :id => ${9:1}$0]]></text>
+    </snippet>
+    <snippet id="asgv">
+      <tag>asgv</tag>
+      <description><![CDATA[assert_good_value]]></description>
+      <text><![CDATA[assert_good_value(${2:Model}, :${3:attribute}, ${4:value}, /${6:message_to_avoid}/)]]></text>
+    </snippet>
+    <snippet id="shvuo">
+      <tag>shvuo</tag>
+      <description><![CDATA[should_validate_uniqueness_of]]></description>
+      <text><![CDATA[should_validate_uniqueness_of :${1:method}, :${3:method}, :${5:method}]]></text>
+    </snippet>
+    <snippet id="bsh">
+      <tag>bsh</tag>
+      <description><![CDATA[before_should block]]></description>
+      <text><![CDATA[before_should "$1" do
+  $0
+end]]></text>
+    </snippet>
+</snippets>

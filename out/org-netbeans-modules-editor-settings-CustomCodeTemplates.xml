@@ -1,0 +1,330 @@
+  <?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+  <codetemplates>
+    <codetemplate abbreviation='shbt' xml:space='preserve'>
+      <description><![CDATA[should_belong_to]]></description>
+      <code><![CDATA[should_belong_to :${1 default="object"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhdi' xml:space='preserve'>
+      <description><![CDATA[should_have_db_indices]]></description>
+      <code><![CDATA[should_have_db_indices :${1 default="column"}, :${3 default="column"}, :${5 default="column"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhabtm' xml:space='preserve'>
+      <description><![CDATA[should_have_and_belong_to_many]]></description>
+      <code><![CDATA[should_have_and_belong_to_many :${1 default="object"}, :${3 default="object"}, :${5 default="object"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrfs' xml:space='preserve'>
+      <description><![CDATA[should_return_from_session]]></description>
+      <code><![CDATA[should_return_from_session :${1 default="user"}, "@${1 default="user"}"]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='asdnc' xml:space='preserve'>
+      <description><![CDATA[assert_does_not_contain]]></description>
+      <code><![CDATA[assert_does_not_contain(${1 default="collection"}, /${3 default="x"}/, "${5 default="extra_msg"}")]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrl' xml:space='preserve'>
+      <description><![CDATA[should_render_with_layout]]></description>
+      <code><![CDATA[should_render_with_layout '${2 default="layout"}']]></code>
+    </codetemplate>
+    <codetemplate abbreviation='facd' xml:space='preserve'>
+      <description><![CDATA[Factory.define with class]]></description>
+      <code><![CDATA[Factory.define :${1 default="model"}, :class => ${3 default="ClassName"} do |f|
+  f.${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='assave' xml:space='preserve'>
+      <description><![CDATA[assert_save]]></description>
+      <code><![CDATA[assert_save ${1 default="object"}	]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhra' xml:space='preserve'>
+      <description><![CDATA[should_have_readonly_attributes]]></description>
+      <code><![CDATA[should_have_readonly_attributes :${1 default="method"}, :${3 default="method"}, :${5 default="method"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shc' xml:space='preserve'>
+      <description><![CDATA[should_change from to]]></description>
+      <code><![CDATA[should_change("${1 default="description"}", :from => "${5 default="old_value"}", :to => "${8 default="new_value"}") { ${10 default="Model"}.${11 default="count"} }${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shamao' xml:space='preserve'>
+      <description><![CDATA[should_allow_mass_assignment_of]]></description>
+      <code><![CDATA[should_allow_mass_assignment_of :${1 default="attribute"}, :${3 default="attribute"}, :${5 default="attribute"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shraf' xml:space='preserve'>
+      <description><![CDATA[should_render_a_form]]></description>
+      <code><![CDATA[should_render_a_form]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shc' xml:space='preserve'>
+      <description><![CDATA[should_change by]]></description>
+      <code><![CDATA[should_change("${1 default="description"}", :by => "${4 default="value"}") { ${6 default="Model"}.${7 default="count"} }${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='sh' xml:space='preserve'>
+      <description><![CDATA[should block]]></description>
+      <code><![CDATA[should "${tabStop1 default=""}" do
+  ${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhdi' xml:space='preserve'>
+      <description><![CDATA[should_have_db_index]]></description>
+      <code><![CDATA[should_have_db_index :${1 default="column"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shnamao' xml:space='preserve'>
+      <description><![CDATA[should_not_allow_mass_assignment_of]]></description>
+      <code><![CDATA[should_not_allow_mass_assignment_of :${1 default="attribute"}, :${3 default="attribute"}, :${5 default="attribute"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhcm' xml:space='preserve'>
+      <description><![CDATA[should_have_class_methods]]></description>
+      <code><![CDATA[should_have_class_methods :${1 default="method"}, :${3 default="method"}, :${5 default="method"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrw' xml:space='preserve'>
+      <description><![CDATA[should_respond_with]]></description>
+      <code><![CDATA[should_respond_with :${1 default="success"}${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shsf' xml:space='preserve'>
+      <description><![CDATA[should_set_the_flash_to]]></description>
+      <code><![CDATA[should_set_the_flash_to ${1 default="value"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='she' xml:space='preserve'>
+      <description><![CDATA[should_eventually]]></description>
+      <code><![CDATA[should_eventually "${tabStop1 default=""}" do
+  ${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shnsf' xml:space='preserve'>
+      <description><![CDATA[should_not_set_the_flash]]></description>
+      <code><![CDATA[should_not_set_the_flash]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shnc' xml:space='preserve'>
+      <description><![CDATA[should_not_change]]></description>
+      <code><![CDATA[should_not_change("${1 default="description"}") { ${2 default="Model"}.${3 default="count"} }${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='facs' xml:space='preserve'>
+      <description><![CDATA[Factory.sequence]]></description>
+      <code><![CDATA[Factory.sequence :${1 default="name"} do |n|
+  ${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhm' xml:space='preserve'>
+      <description><![CDATA[should_have_many]]></description>
+      <code><![CDATA[should_have_many :${1 default="objects"}, :through => :${4 default="association"}, :dependent => :${6 default="destroy"}${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shna' xml:space='preserve'>
+      <description><![CDATA[should_not_assign_to]]></description>
+      <code><![CDATA[should_not_assign_to :${1 default="name"}, :${3 default="name"}, :${5 default="name"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shvno' xml:space='preserve'>
+      <description><![CDATA[should_validate_numericality_of]]></description>
+      <code><![CDATA[should_validate_numericality_of :${1 default="attribute"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shel' xml:space='preserve'>
+      <description><![CDATA[should_ensure_length_in_range]]></description>
+      <code><![CDATA[should_ensure_length_in_range :${1 default="attribute"}, (${2 default="range"})]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrr' xml:space='preserve'>
+      <description><![CDATA[should_restfully_route]]></description>
+      <code><![CDATA[context "when routing" do
+  should_route :get,    "/${1 default="brands"}",        :controller => :${tabStop1 default=""}, :action => :index
+  should_route :get,    "/${tabStop1 default=""}/1",      :controller => :${tabStop1 default=""}, :action => :show,    :id => 1
+  should_route :get,    "/${tabStop1 default=""}/1/edit", :controller => :${tabStop1 default=""}, :action => :edit,    :id => 1
+  should_route :get,    "/${tabStop1 default=""}/new",    :controller => :${tabStop1 default=""}, :action => :new
+  should_route :post,   "/${tabStop1 default=""}",        :controller => :${tabStop1 default=""}, :action => :create
+  should_route :put,    "/${tabStop1 default=""}/1",      :controller => :${tabStop1 default=""}, :action => :update,  :id => 1
+  should_route :delete, "/${tabStop1 default=""}/1",      :controller => :${tabStop1 default=""}, :action => :destroy, :id => 1
+end${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrl' xml:space='preserve'>
+      <description><![CDATA[should_render_without_layout]]></description>
+      <code><![CDATA[should_render_without_layout]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='asse' xml:space='preserve'>
+      <description><![CDATA[assert_same_elements]]></description>
+      <code><![CDATA[assert_same_elements(${1 default="array1"}, ${2 default="array2"}, "${4 default="message"}")]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='assemail' xml:space='preserve'>
+      <description><![CDATA[assert_sent_email]]></description>
+      <code><![CDATA[assert_sent_email do |email|
+  email.${2 default="subject|from|to|body"}|${2 default="subject|from|to|body"}|${2 default="subject|from|to|body"}|${2 default="subject|from|to|body"} ${3 default="=="} '${5 default="anything"}':tab_s${2 default="subject|from|to|body"}p0:
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shnav' xml:space='preserve'>
+      <description><![CDATA[should_not_allow_values_for]]></description>
+      <code><![CDATA[should_not_allow_values_for :${1 default="attribute"}, "${tabStop2 default=""}", "${tabStop4 default=""}", "${tabStop6 default=""}"]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='asbv' xml:space='preserve'>
+      <description><![CDATA[assert_bad_value]]></description>
+      <code><![CDATA[assert_bad_value(${2 default="Model"}, :${3 default="attribute"}, ${4 default="value"}, /${6 default="message_to_expect"}/)]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrt' xml:space='preserve'>
+      <description><![CDATA[should_render_template]]></description>
+      <code><![CDATA[should_render_template :${1 default="template"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='faca' xml:space='preserve'>
+      <description><![CDATA[Factory attributes for]]></description>
+      <code><![CDATA[Factory.attributes_for(:${1 default="model"})]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shb' xml:space='preserve'>
+      <description><![CDATA[should block with before proc]]></description>
+      <code><![CDATA[should "${tabStop1 default=""}", :before => lambda { ${3 default="any_code"} \} do
+  ${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shav' xml:space='preserve'>
+      <description><![CDATA[should_allow_values_for]]></description>
+      <code><![CDATA[should_allow_values_for :${1 default="attribute"}, "${tabStop2 default=""}", "${tabStop4 default=""}", "${tabStop6 default=""}"]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='f.' xml:space='preserve'>
+      <description><![CDATA[attribute]]></description>
+      <code><![CDATA[f.${1 default="attribute"} '${3 default="value"}'
+f.${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shcre' xml:space='preserve'>
+      <description><![CDATA[should_create]]></description>
+      <code><![CDATA[should_create :${1 default="model"}${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhim' xml:space='preserve'>
+      <description><![CDATA[should_have_instance_methods]]></description>
+      <code><![CDATA[should_have_instance_methods :${1 default="method"}, :${3 default="method"}, :${5 default="method"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='cont' xml:space='preserve'>
+      <description><![CDATA[context block with setup]]></description>
+      <code><![CDATA[context "${1 default="description"}" do
+  setup do
+    ${tabStop3 default=""}
+  end
+
+  should "${4 default="description"}" do
+    ${cursor}
+  end
+end
+]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='fac' xml:space='preserve'>
+      <description><![CDATA[Factory]]></description>
+      <code><![CDATA[Factory(:${1 default="model"})]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='contg' xml:space='preserve'>
+      <description><![CDATA[context block get]]></description>
+      <code><![CDATA[context "on GET to :${1 default="show"}" do
+  setup { get :${tabStop1 default=""}, :id => ${3 default="1"} }
+
+  should "${5 default="description"}" do
+    ${cursor}
+  end
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='facd' xml:space='preserve'>
+      <description><![CDATA[Factory.define]]></description>
+      <code><![CDATA[Factory.define :${1 default="model"} do |f|
+  f.${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='f.a' xml:space='preserve'>
+      <description><![CDATA[association]]></description>
+      <code><![CDATA[f.association :${1 default="name"}, :factory => :${3 default="factory_name"}
+f.${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='sher' xml:space='preserve'>
+      <description><![CDATA[should_ensure_value_in_range]]></description>
+      <code><![CDATA[should_ensure_value_in_range :${1 default="attribute"}, (${2 default="range"})]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shvao' xml:space='preserve'>
+      <description><![CDATA[should_validate_acceptance_of]]></description>
+      <code><![CDATA[should_validate_acceptance_of :${1 default="attribute"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shvuo' xml:space='preserve'>
+      <description><![CDATA[should_validate_uniqueness_of with scope]]></description>
+      <code><![CDATA[should_validate_uniqueness_of :${1 default="method"}, :scoped_to => [:${4 default="column_id"}, :${5 default="column_type"}]]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shde' xml:space='preserve'>
+      <description><![CDATA[should_destroy]]></description>
+      <code><![CDATA[should_destroy :${1 default="model"}${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shho' xml:space='preserve'>
+      <description><![CDATA[should_have_one]]></description>
+      <code><![CDATA[should_have_one :${1 default="object"}, :dependent => :${3 default="destroy"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shel' xml:space='preserve'>
+      <description><![CDATA[should_ensure_length_is]]></description>
+      <code><![CDATA[should_ensure_length_is :${1 default="attribute"}, ${2 default="length"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shvpo' xml:space='preserve'>
+      <description><![CDATA[should_validate_presence_of]]></description>
+      <code><![CDATA[should_validate_presence_of :${1 default="method"}, :${3 default="method"}, :${5 default="method"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shre' xml:space='preserve'>
+      <description><![CDATA[should_redirect_to]]></description>
+      <code><![CDATA[should_redirect_to("${1 default="a page"}") { ${3 default="user"}s_url(@${tabStop3 default=""}) }]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='contp' xml:space='preserve'>
+      <description><![CDATA[context block post]]></description>
+      <code><![CDATA[context "on POST to :${1 default="create"}" do
+  setup { post :${tabStop1 default=""}, :${2 default="user"} => { :${4 default="key"} => ${5 default="value"}, :${7 default="key"} => ${8 default="value"} } }
+
+  should "${10 default="description"}" do
+    ${cursor}
+  end
+end
+]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhdc' xml:space='preserve'>
+      <description><![CDATA[should_have_db_columns]]></description>
+      <code><![CDATA[should_have_db_columns :${1 default="column"}, :${3 default="column"}, :${5 default="column"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='setup' xml:space='preserve'>
+      <description><![CDATA[setup]]></description>
+      <code><![CDATA[setup do
+	${cursor}
+end]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='asv' xml:space='preserve'>
+      <description><![CDATA[assert_valid]]></description>
+      <code><![CDATA[assert_valid ${1 default="object"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shhdc' xml:space='preserve'>
+      <description><![CDATA[should_have_db_column]]></description>
+      <code><![CDATA[should_have_db_column :${1 default="name"}, :${3 default="type"} => "${5 default="string"}", :${7 default="default"} => ${8 default="nil"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='facb' xml:space='preserve'>
+      <description><![CDATA[Factory build]]></description>
+      <code><![CDATA[Factory.build(:${1 default="model"})]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='sha' xml:space='preserve'>
+      <description><![CDATA[should_assign_to]]></description>
+      <code><![CDATA[should_assign_to(:${1 default="name"}) { @${tabStop1 default=""} \}${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='asc' xml:space='preserve'>
+      <description><![CDATA[assert_contains]]></description>
+      <code><![CDATA[assert_contains(${1 default="collection"}, /${3 default="x"}/, "${5 default="extra_msg"}")]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shrw' xml:space='preserve'>
+      <description><![CDATA[should_respond_with_content_type]]></description>
+      <code><![CDATA[should_respond_with_content_type :${1 default="rss"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shel' xml:space='preserve'>
+      <description><![CDATA[should_ensure_length_at_least]]></description>
+      <code><![CDATA[should_ensure_length_at_least :${1 default="attribute"}, ${2 default="min_length"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='facn' xml:space='preserve'>
+      <description><![CDATA[Factory.next]]></description>
+      <code><![CDATA[Factory.next(:${1 default="sequence"})]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shfp' xml:space='preserve'>
+      <description><![CDATA[should_filter_params]]></description>
+      <code><![CDATA[should_filter_params :${1 default="key"}, :${3 default="key"}, :${5 default="key"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shr' xml:space='preserve'>
+      <description><![CDATA[should_route]]></description>
+      <code><![CDATA[should_route :${1 default="get|post|put|delete"}|${1 default="get|post|put|delete"}|${1 default="get|post|put|delete"}|${1 default="get|post|put|delete"}, "/${1 default="get|post|put|delete"}s", :controller => :${tabStop3 default=""}, :action => :${7 default="create"}, :id => ${9 default="1"}${cursor}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='asgv' xml:space='preserve'>
+      <description><![CDATA[assert_good_value]]></description>
+      <code><![CDATA[assert_good_value(${2 default="Model"}, :${3 default="attribute"}, ${4 default="value"}, /${6 default="message_to_avoid"}/)]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='shvuo' xml:space='preserve'>
+      <description><![CDATA[should_validate_uniqueness_of]]></description>
+      <code><![CDATA[should_validate_uniqueness_of :${1 default="method"}, :${3 default="method"}, :${5 default="method"}]]></code>
+    </codetemplate>
+    <codetemplate abbreviation='bsh' xml:space='preserve'>
+      <description><![CDATA[before_should block]]></description>
+      <code><![CDATA[before_should "${tabStop1 default=""}" do
+  ${cursor}
+end]]></code>
+    </codetemplate>
+</codetemplates>
