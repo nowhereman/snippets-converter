@@ -6,9 +6,9 @@ Convert TextMate Snippets into Gedit, NetBeans and Ruble (Aptana RadRails 3) sni
     sudo gem snippets_converter
 
 == How to use (for Ubuntu)
-* Copy your TextMate Snippets directory into the in folder of snippets_converter, run 
+* Run SnippetsConverter in your TextMate Bundle directory. Then run :
     snippets_converter netbeans|gedit|ruble
-* This will convert all your Snippets in a XML file into a "out" folder of the directory where you are going to execute SnippetsConverter.
+* This will convert all your Snippets in a XML file into the "out" folder of your current directory.
 
 === Gedit
 Put the gedit_snippets.xml file into
