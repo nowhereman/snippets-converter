@@ -3,11 +3,11 @@
 Convert TextMate Snippets into Gedit, NetBeans and Ruble (Aptana RadRails 3) snippets.
 
 == Install the gem
-    sudo gem snippets_converter
+ sudo gem snippets_converter
 
 == How to use (for Ubuntu)
 * Open a terminal and go in your TextMate Bundle directory. Then run :
-    snippets_converter netbeans|gedit|ruble
+ snippets_converter netbeans|gedit|ruble
 * This will convert all your Snippets in a XML file into the "out" folder of your current directory.
 
 === Gedit
@@ -31,7 +31,7 @@ More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-gu
 == Dependencies
 
 you'll need ActiveSupport and Nokogiri gems in order to use this gem, so :
-    sudo gem install active_support nokogiri
+ sudo gem install active_support nokogiri
 
 == Note on Patches/Pull Requests
  
