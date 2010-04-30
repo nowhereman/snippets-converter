@@ -2,14 +2,15 @@ class SnippetsConverter
   require 'rubygems'
   require 'active_support'
   require 'nokogiri'
+  require 'fileutils'
 
-  Dir[File.dirname(__FILE__) + '/snippets_converter/editors/*.rb'].each do |file| 
+  Dir[File.dirname(__FILE__) + '/snippets_converter/editors/*.rb'].each do |file|
     require file
   end
 
-  def initialize    
+  def initialize
   end
-  
+
   def convert(file)
     xml = File.read(file)
     doc = Nokogiri::XML(xml)
@@ -37,14 +38,14 @@ class SnippetsConverter
 
   # Nested tab stops and place holders remover, e.g '${1: ${3:cool} $2 }' become ' ${3:cool} $2 '
   def transform_snippet(code)
-      
+
     # Nested tab stops, e.g '${1: $2 }'
     nested_tab_stop = /((\$\{[0-9]{1,5}:[^${}]*)\$([0-9]{1,5})([^${}]*\}))+/m
     code.gsub!(nested_tab_stop, '\2:nested_tab_stop\3:\4')
 
     code.gsub!(/\$([0-9]{1,5})/, ':tab_stop\1:') # Tab Stop, e.g '$0'
     code.gsub!(/\$([^{][^0-9]+[^:])/, ':dollar:\1') # Dollar, e.g. '$titi'
-    
+
     # Place holders, e.g. '${1: cool }'
     place_holders = /\$\{((?>[^${}]+)|(\1))+\}/m
     place_holders_matches = code.scan(place_holders)
@@ -77,7 +78,7 @@ class SnippetsConverter
     loop do
       i += 1
       break if !code.gsub!(nested_tab_stop, '\2') || i > 20
-    end     
+    end
 
     code.gsub!(/:tab_stop([0-9]{1,5}):/, '$\1')
     code.gsub!(/:dollar:/, '$')
@@ -102,22 +103,23 @@ class SnippetsConverter
 
   def run(*args)
     @in_folder = Dir.pwd # File.dirname(__FILE__) + '/../in'
+    raise Exception.new("You must have a '#{@in_folder}' folder") if !File.directory?(@in_folder)
+
     @out_folder = Dir.pwd + '/out' # File.dirname(__FILE__) + '/../out'
+    FileUtils.mkdir_p(@out_folder) if !File.directory?(@out_folder)
+    raise Exception.new("You must have a '#{@out_folder}' folder writable") if !File.directory?(@out_folder) || !File.writable?(@out_folder)
 
     @editor = args.first || 'Netbeans' # default editor is NetBeans
     @editor = 'Netbeans' if @editor == 'NetBeans' # Dirty fix for NetBeans editor name
     extend "SnippetsConverter::Editors::#{@editor.camelize}".constantize
 
-    raise Exception.new("You must have a '#{@in_folder}' folder writable") if !File.directory?(@in_folder) || !File.writable?(@in_folder) 
-    raise Exception.new("You must have a '#{@out_folder}' folder writable") if !File.directory?(@out_folder) || !File.writable?(@out_folder) 
-    
     output = editor_header
     for file in Dir.glob("#{@in_folder}/**/*.tmSnippet")
       puts "Converting #{file} to #{@editor} snippet..."
       output = "#{output}#{convert(file)}"
     end
     output = "#{output}#{editor_bottom}"
-    
+
     File.open("#{@out_folder}/#{editor_target_file}", "w") do |f|
       f.write(output)
     end
@@ -125,6 +127,6 @@ class SnippetsConverter
     puts "Result stored in '#{Pathname.new(@out_folder).realpath.to_s}/#{editor_target_file}'"
     puts "**** Done ****"
   end
-  
+
 end
 
