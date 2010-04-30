@@ -13,7 +13,7 @@ class SnippetsConverter
         CODE
       end
 
-      def editor_header(language='[LANGUAGE]')
+      def editor_header(language = 'ruby')
         # TODO use ARGV or get 'scope' attribute of TextMate to get the desire language
         return <<-CODE
   <?xml version='1.0' encoding='utf-8'?>
