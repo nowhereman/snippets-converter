@@ -2,11 +2,14 @@
 
 Convert TextMate Snippets into into Gedit, NetBeans and Ruble (Aptana Studio) snippets.
 
-== How to use (for Ubuntu)
+== Install
+    sudo gem snippets_converter
 
-Copy your TextMate Snippets directory into the in folder of snippets_converter, run 
-    ruby snippets_converter netbeans|gedit|ruble
-This will convert all you need and create a XML file.
+== How to use (for Ubuntu)
+* Create an "out" folder inside the directory where you are going to execute SnippetsConverter.
+* Copy your TextMate Snippets directory into the in folder of snippets_converter, run 
+    snippets_converter netbeans|gedit|ruble
+This will convert all you need and create a XML file into the "out" folder.
 
 == Gedit
 Put the gedit_snippet.xml file into
