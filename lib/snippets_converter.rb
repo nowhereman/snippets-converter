@@ -7,8 +7,7 @@ class SnippetsConverter
     require file
   end
 
-  def initialize
-    
+  def initialize    
   end
   
   def convert(file)
@@ -102,26 +101,28 @@ class SnippetsConverter
     end
 
   def run(*args)
-    @in_folder = File.dirname(__FILE__) + '/../in'
-    @out_folder = File.dirname(__FILE__) + '/../out'
+    @in_folder = Dir.pwd # File.dirname(__FILE__) + '/../in'
+    @out_folder = Dir.pwd + '/out' # File.dirname(__FILE__) + '/../out'
 
     @editor = args.first || 'Netbeans' # default editor is NetBeans
     @editor = 'Netbeans' if @editor == 'NetBeans' # Dirty fix for NetBeans editor name
     extend "SnippetsConverter::Editors::#{@editor.camelize}".constantize
 
-    raise Exception.new("You must have a '#{@in_folder}' folder") unless File.directory?(@in_folder)
+    raise Exception.new("You must have a '#{@in_folder}' folder writable") if !File.directory?(@in_folder) || !File.writable?(@in_folder) 
+    raise Exception.new("You must have a '#{@out_folder}' folder writable") if !File.directory?(@out_folder) || !File.writable?(@out_folder) 
+    
     output = editor_header
     for file in Dir.glob("#{@in_folder}/**/*.tmSnippet")
       puts "Converting #{file} to #{@editor} snippet..."
       output = "#{output}#{convert(file)}"
     end
     output = "#{output}#{editor_bottom}"
-
+    
     File.open("#{@out_folder}/#{editor_target_file}", "w") do |f|
       f.write(output)
     end
 
-    puts "Result stored in '#{@out_folder}/#{editor_target_file}'"
+    puts "Result stored in '#{Pathname.new(@out_folder).realpath.to_s}/#{editor_target_file}'"
     puts "**** Done ****"
   end
   
