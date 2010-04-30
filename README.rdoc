@@ -11,16 +11,16 @@ This will convert all you need and create a XML file.
 == Gedit
 Put the gedit_snippet.xml file into
 
-/home/username/.gnome2/gedit/snippets folder
+ /home/username/.gnome2/gedit/snippets
 
 
 == NetBeans
 Put the org-netbeans-modules-editor-settings-CustomCodeTemplates.xml file into
 
-/home/username/.netbeans/6.8/config/Editors/text/x-ruby/CodeTemplates folder
+ /home/username/.netbeans/6.8/config/Editors/text/x-ruby/CodeTemplates
 
 == Ruble
- TODO
+TODO
 
 == Dependencies
 
