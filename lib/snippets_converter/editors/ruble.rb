@@ -5,20 +5,20 @@ class SnippetsConverter
       def editor_conversion(trigger, description, code)
         # Need to escape double quote for description and code because Ruble doesn't seem to like it
         return <<-CODE
-    snippet "#{description.gsub(/\"/,'\"')}" do |snippet|
-      snippet.trigger = "#{trigger}"
-      snippet.expansion = "#{code.gsub(/\"/,'\"')}"
-    end
+  snippet "#{description.gsub(/\"/,'\"')}" do |snippet|
+    snippet.trigger = "#{trigger}"
+    snippet.expansion = "#{code.gsub(/\"/,'\"')}"
+  end
 
         CODE
       end
 
-      def editor_header(language='[LANGUAGE]')
+      def editor_header(language = 'source.ruby')
         # TODO use ARGV or get 'scope' attribute of TextMate to get the desire language
         return <<-CODE
-  require 'ruble'
+require 'ruble'
 
-  with_defaults :scope => "#{language}" do |bundle|
+with_defaults :scope => "#{language}" do |bundle|
 
         CODE
       end
