@@ -13,7 +13,7 @@ class TestParseTmSnippet < Test::Unit::TestCase
   end
 
 
-  def test_snippet_pasring
+  def test_snippet_parsing
     assert 'asbv', @trigger
     assert 'assert_bad_value(${1:${2:Model}}, :${3:attribute}, ${4:value}${5:, /${6:message_to_expect}/})', @code
     assert 'assert_bad_value', @description
