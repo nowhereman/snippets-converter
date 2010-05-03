@@ -30,8 +30,8 @@ More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-gu
 
 == Dependencies
 
-you'll need ActiveSupport and Nokogiri gems in order to use this gem, so :
- sudo gem install active_support nokogiri
+You'll need ActiveSupport gem in order to use this gem, so :
+ sudo gem install active_support
 
 == Note on Patches/Pull Requests
  

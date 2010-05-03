@@ -1,8 +1,10 @@
 class SnippetsConverter
   require 'rubygems'
   require 'active_support'
-  require 'nokogiri'
   require 'fileutils'
+  require 'rexml/document'
+
+  include REXML
 
   Dir[File.dirname(__FILE__) + '/snippets_converter/editors/*.rb'].each do |file|
     require file
@@ -12,15 +14,15 @@ class SnippetsConverter
   end
 
   def parse_tm_snippet(file)
-    xml = File.read(file)
-    doc = Nokogiri::XML(xml)
+
+    doc = Document.new( file = File.read(file) )
     i = 0
     j = 0
 
     arrKey = []
     arrString = []
     # Transform the key and string node into arrays
-    doc.xpath('//key','//string').each do |key|
+    XPath.each( doc, '//key|//string') do |key|
       if key.name == "key"
         arrKey[i] = key.text
         i+=1
