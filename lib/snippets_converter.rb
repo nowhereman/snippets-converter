@@ -11,14 +11,14 @@ class SnippetsConverter
   def initialize
   end
 
-  def convert(file)
+  def parse_tm_snippet(file)
     xml = File.read(file)
     doc = Nokogiri::XML(xml)
     i = 0
     j = 0
 
-    arrKey = Array.new
-    arrString = Array.new
+    arrKey = []
+    arrString = []
     # Transform the key and string node into arrays
     doc.xpath('//key','//string').each do |key|
       if key.name == "key"
@@ -30,9 +30,20 @@ class SnippetsConverter
       end
     end
 
-    code = arrString[arrKey.index('content')]
-    transform_snippet(code)
-    return editor_conversion(arrString[arrKey.index('tabTrigger')], arrString[arrKey.index('name')], code)
+    tm_snippet = {}
+    tm_snippet[:trigger] = arrString[arrKey.index('tabTrigger')]
+    tm_snippet[:code] = arrString[arrKey.index('content')]
+    tm_snippet[:description] = arrString[arrKey.index('name')]
+    tm_snippet[:language] = arrString[arrKey.index('scope')]
+    
+    tm_snippet
+  end
+
+  def convert(file)
+    tm_snippet = parse_tm_snippet(file)
+
+    transform_snippet(tm_snippet[:code])
+    return editor_conversion(tm_snippet[:trigger], tm_snippet[:description], tm_snippet[:code])
 
   end
 
@@ -113,12 +124,14 @@ class SnippetsConverter
     @editor = 'Netbeans' if @editor == 'NetBeans' # Dirty fix for NetBeans editor name
     extend "SnippetsConverter::Editors::#{@editor.camelize}".constantize
 
-    output = editor_header
+    output = nil
+    language = nil
     for file in Dir.glob("#{@in_folder}/**/*.tmSnippet")
       puts "Converting #{file} to #{@editor} snippet..."
       output = "#{output}#{convert(file)}"
+      language = parse_tm_snippet(file)[:language] unless language
     end
-    output = "#{output}#{editor_bottom}"
+    output = "#{editor_header(language)}#{output}#{editor_bottom}"
 
     File.open("#{@out_folder}/#{editor_target_file}", "w") do |f|
       f.write(output)

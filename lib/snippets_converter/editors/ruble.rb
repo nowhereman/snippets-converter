@@ -14,7 +14,6 @@ class SnippetsConverter
       end
 
       def editor_header(language = 'source.ruby')
-        # TODO use ARGV or get 'scope' attribute of TextMate to get the desire language
         return <<-CODE
 require 'ruble'
 
