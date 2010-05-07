@@ -16,6 +16,7 @@ Put the <language>.xml file into
  /home/username/.gnome2/gedit/snippets
 
 If you used GMate (http://github.com/gmate/gmate).
+
 Open your <language>.xml file and and check if the "language" attribute of "snippets" tag is correct
 
  <snippets language="rubyonrails">
@@ -50,5 +51,6 @@ More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-gu
 == Copyright
 
 Copyright (c) 2009 Nicolas Alpi
+
 Copyright (c) 2010 Nowhere Man. See LICENSE for details.
 
