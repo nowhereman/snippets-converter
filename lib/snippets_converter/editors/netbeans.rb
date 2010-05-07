@@ -1,7 +1,7 @@
-class SnippetsConverter
+module SnippetsConverter
   module Editors
     module Netbeans
-      
+
       def editor_conversion(trigger, description, code)
         code.gsub!(/\$0/, '${cursor}')
         code.gsub!(/\$\{([0-9]{1,5}):((?>[^{}]+)|(\1))+\}/m, '${\1 default="\2"}')
@@ -34,3 +34,4 @@ class SnippetsConverter
     end
   end
 end
+

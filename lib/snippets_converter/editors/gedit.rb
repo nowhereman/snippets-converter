@@ -1,7 +1,7 @@
-class SnippetsConverter
+module SnippetsConverter
   module Editors
     module Gedit
-      
+
       def editor_conversion(trigger, description, code)
         # Need to remove dot in 'trigger' because Gedit doesn't seem to like it on the tag
         return <<-CODE
@@ -31,3 +31,4 @@ class SnippetsConverter
     end
   end
 end
+

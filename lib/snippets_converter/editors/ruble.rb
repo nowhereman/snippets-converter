@@ -1,7 +1,7 @@
-class SnippetsConverter
+module SnippetsConverter
   module Editors
     module Ruble
-      
+
       def editor_conversion(trigger, description, code)
         # Need to escape double quote for description and code because Ruble doesn't seem to like it
         return <<-CODE
@@ -34,3 +34,4 @@ with_defaults :scope => "#{language}" do |bundle|
     end
   end
 end
+

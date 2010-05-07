@@ -85,10 +85,11 @@ end'
 
   def test_snippets_conversion
     @snippets.each do |snippet, expected_snippet|
-      SnippetsConverter.new.transform_snippet(snippet)
+      SnippetsConverter::Base.new.transform_snippet(snippet)
       assert_equal expected_snippet, snippet
     end
 
   end
 
 end
+

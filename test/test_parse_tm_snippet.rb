@@ -4,8 +4,8 @@ require 'nokogiri'
 class TestParseTmSnippet < Test::Unit::TestCase
 
   def setup
-    tm_snippet = SnippetsConverter.new.parse_tm_snippet(File.dirname(__FILE__) + '/examples/assert_bad_value.tmSnippet')
-    
+    tm_snippet = SnippetsConverter::Base.new.parse_tm_snippet(File.dirname(__FILE__) + '/examples/assert_bad_value.tmSnippet')
+
     @trigger = tm_snippet[:trigger]
     @code = tm_snippet[:code]
     @description = tm_snippet[:description]
@@ -21,3 +21,4 @@ class TestParseTmSnippet < Test::Unit::TestCase
   end
 
 end
+

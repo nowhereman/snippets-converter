@@ -21,5 +21,6 @@
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'snippets_converter'
 
-snippet_converter = SnippetsConverter.new
+snippet_converter = SnippetsConverter::Base.new
 snippet_converter.run(*ARGV)
+
