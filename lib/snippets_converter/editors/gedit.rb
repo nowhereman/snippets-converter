@@ -24,8 +24,8 @@ module SnippetsConverter
         "</snippets>"
       end
 
-      def editor_target_file
-        "gedit_snippets.xml"
+      def editor_target_file(language = 'gedit_snippets')
+        "#{language.gsub(/.+\.(.+)/,'\1')}.xml"
       end
 
     end

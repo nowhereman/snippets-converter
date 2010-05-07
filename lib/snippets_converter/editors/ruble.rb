@@ -27,8 +27,8 @@ with_defaults :scope => "#{language}" do |bundle|
         "end"
       end
 
-      def editor_target_file
-        "ruble_snippets.rb"
+      def editor_target_file(language = 'ruble')
+        "#{language.gsub(/.+\.(.+)/,'\1')}_snippets.rb"
       end
 
     end

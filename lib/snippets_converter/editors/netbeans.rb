@@ -15,7 +15,7 @@ module SnippetsConverter
         CODE
       end
 
-      def editor_header
+      def editor_header(language = nil)
         return <<-CODE
   <?xml version="1.0" encoding="UTF-8"?>
   <!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
@@ -27,7 +27,7 @@ module SnippetsConverter
         "</codetemplates>"
       end
 
-      def editor_target_file
+      def editor_target_file(language = nil)
         "org-netbeans-modules-editor-settings-CustomCodeTemplates.xml"
       end
 
