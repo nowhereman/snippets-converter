@@ -8,18 +8,18 @@ module SnippetsConverter
         code.gsub!(/\$([0-9]{1,5})/, '${tabStop\1 default=""}')
 
         return <<-CODE
-    <codetemplate abbreviation='#{trigger}' xml:space='preserve'>
-      <description><![CDATA[#{description}]]></description>
-      <code><![CDATA[#{code}]]></code>
-    </codetemplate>
+  <codetemplate abbreviation='#{trigger}' xml:space='preserve'>
+    <description><![CDATA[#{description}]]></description>
+    <code><![CDATA[#{code}]]></code>
+  </codetemplate>
         CODE
       end
 
       def editor_header(language = nil)
         return <<-CODE
-  <?xml version="1.0" encoding="UTF-8"?>
-  <!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
-  <codetemplates>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE codetemplates PUBLIC "-//NetBeans//DTD Editor Code Templates settings 1.0//EN" "http://www.netbeans.org/dtds/EditorCodeTemplates-1_0.dtd">
+<codetemplates>
         CODE
       end
 
