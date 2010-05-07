@@ -11,9 +11,15 @@ Convert TextMate Snippets into Gedit, NetBeans and Ruble (Aptana RadRails 3) sni
 * This will convert all your Snippets in a XML file into the "out" folder of your current directory.
 
 === Gedit
-Put the gedit_snippets.xml file into
+Put the <language>.xml file into
 
  /home/username/.gnome2/gedit/snippets
+
+If you used GMate (http://github.com/gmate/gmate).
+
+Open your <language>.xml file and replace the "language" attribute of "snippets" tag by "rubyonrails", like this :
+
+ <snippets language="rubyonrails">
 
 === NetBeans
 Put the org-netbeans-modules-editor-settings-CustomCodeTemplates.xml file into
@@ -21,9 +27,13 @@ Put the org-netbeans-modules-editor-settings-CustomCodeTemplates.xml file into
  /home/username/.netbeans/6.8/config/Editors/text/x-ruby/CodeTemplates
 
 === Ruble
-Put the ruble_snippets.rb file into
+Put the <language>_snippets.rb file into
 
  /home/username/Documents/Aptana Rubles/my_ruble.ruble/snippets
+
+Open your <language>_snippets.rb file and check if the value of "scope" is correct :
+
+ with_defaults :scope => "source.ruby" do |bundle|
 
 More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-guide
 
