@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Nowhere Man"]
-  s.date = %q{2010-04-30}
+  s.date = %q{2010-05-07}
   s.default_executable = %q{snippets_converter}
   s.description = %q{Quick and dirty code to transform TextMate Snippets into Gedit, NetBeans and Ruble (Aptana Studio) snippets}
   s.email = %q{nowhereman@open_office}
@@ -33,7 +33,9 @@ Gem::Specification.new do |s|
      "lib/snippets_converter/editors/ruble.rb",
      "out/DummyFile",
      "snippets_converter.gemspec",
+     "test/examples/assert_bad_value.tmSnippet",
      "test/test_helper.rb",
+     "test/test_parse_tm_snippet.rb",
      "test/test_snippets_converter.rb"
   ]
   s.homepage = %q{http://github.com/nowhereman/snippets_converter}
@@ -43,7 +45,8 @@ Gem::Specification.new do |s|
   s.summary = %q{Convert TextMate Snippets Gedit, NetBeans and Ruble (Aptana Studio) Snippets.}
   s.test_files = [
     "test/test_helper.rb",
-     "test/test_snippets_converter.rb"
+     "test/test_snippets_converter.rb",
+     "test/test_parse_tm_snippet.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -51,9 +54,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<activesupport>, ["< 3.0.0"])
     else
+      s.add_dependency(%q<activesupport>, ["< 3.0.0"])
     end
   else
+    s.add_dependency(%q<activesupport>, ["< 3.0.0"])
   end
 end
 

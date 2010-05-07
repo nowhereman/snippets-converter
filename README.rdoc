@@ -24,17 +24,11 @@ Put the org-netbeans-modules-editor-settings-CustomCodeTemplates.xml file into
 Put the ruble_snippets.rb file into
 
  /home/username/Documents/Aptana Rubles/my_ruble.ruble/snippets
- 
+
 More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-guide
 
-
-== Dependencies
-
-You'll need ActiveSupport gem in order to use this gem, so :
- sudo gem install active_support
-
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -49,3 +43,4 @@ You'll need ActiveSupport gem in order to use this gem, so :
 Copyright (c) 2009 Nicolas Alpi
 
 Copyright (c) 2010 Nowhere Man. See LICENSE for details.
+
