@@ -5,8 +5,8 @@ module SnippetsConverter
       def editor_conversion(trigger, description, code)
         code.gsub!(/\$0/, '${cursor}')
         code.gsub!(/\$\{([0-9]{1,5}):((?>[^{}]+)|(\1))+\}/m, '${\1 default="\2"}')
+        code.gsub!(/(\$\{([0-9]{1,5}) default\=\".+\"\}.+)\$(\2)/m, '\1${\3}')
         code.gsub!(/\$([0-9]{1,5})/, '${tabStop\1 default=""}')
-
         return <<-CODE
   <codetemplate abbreviation='#{trigger}' xml:space='preserve'>
     <description><![CDATA[#{description}]]></description>
