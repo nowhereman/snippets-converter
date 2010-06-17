@@ -26,7 +26,7 @@ This will convert all your Snippets in a XML file into the "out" folder of your 
 === NetBeans
 * Put the org-netbeans-modules-editor-settings-CustomCodeTemplates.xml file into
 
- /home/username/.netbeans/6.8/config/Editors/text/x-ruby/CodeTemplates
+ /home/username/.netbeans/6.9/config/Editors/text/x-ruby/CodeTemplates
 
 === Ruble (Aptana Studio/RadRails 3)
 * Put the <language>_snippets.rb file into
