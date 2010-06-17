@@ -14,6 +14,9 @@ class TestSnippetsConverter < Test::Unit::TestCase
     @snippets << [ "${1: [ ${2: cool} ${3: guy { ${4:tralala} } } ] }", " [ ${2: cool}  guy { ${4:tralala} }  ] "]
     @snippets << [ 'should_have_db_column :${1:name}${2:, :${3:type} =&gt; ${4:"${5:string}"}${6:, :${7:default} =&gt; ${8:nil}}}', 'should_have_db_column :${1:name}, :${3:type} =&gt; "${5:string}", :${7:default} =&gt; ${8:nil}']
     @snippets << [ "should_have_db_indices :${1:object_id}${2:, [:${3:commentable_type}, :${4:commentable_id}]}$0", "should_have_db_indices :${1:object_id}, [:${3:commentable_type}, :${4:commentable_id}]$0" ]
+    @snippets << [ "${1: ${2: {:global => \\$COOL\\} } ${3: && \\`cd /\\`} }", " ${2: {:global => $COOL} } ${3: && `cd /`} "]
+    @snippets << [ "${1: cool} ${2: {:global => ${3:\\`cd /\\`} \\} }", "${1: cool}  {:global => ${3:`cd /`} } "]
+    @snippets << [ "${1: ${2: {:global => { :hash1 => \\`cd /\\` \\} \\} } }", " ${2: {:global => { :hash1 => `cd /` } } } "]
 
     snippet = 'context "${1:description}" do
   ${2:setup do

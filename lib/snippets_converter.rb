@@ -84,25 +84,42 @@ module SnippetsConverter
 
     # Nested tab stops and place holders remover, e.g '${1: ${3:cool} $2 }' become ' ${3:cool} $2 '
     def transform_snippet(code)
+      # Transform TextMate snippets syntax into snippets converter internal codes, e.g. '$' become ':dollar:'
+      
+        # Nested tab stops, e.g '${1: $2 }'
+        nested_tab_stop = /((\$\{[0-9]{1,5}:[^${}]*)\$([0-9]{1,5})([^${}]*\}))+/m
+        code.gsub!(nested_tab_stop, '\2:nested_tab_stop\3:\4')
 
-      # Nested tab stops, e.g '${1: $2 }'
-      nested_tab_stop = /((\$\{[0-9]{1,5}:[^${}]*)\$([0-9]{1,5})([^${}]*\}))+/m
-      code.gsub!(nested_tab_stop, '\2:nested_tab_stop\3:\4')
+        code.gsub!(/\$([0-9]{1,5})/, ':tab_stop\1:') # Tab Stop, e.g '$0'
 
-      code.gsub!(/\$([0-9]{1,5})/, ':tab_stop\1:') # Tab Stop, e.g '$0'
-      code.gsub!(/\$([^{][^0-9]+[^:])/, ':dollar:\1') # Dollar, e.g. '$titi'
+       # Unescape "$", "`" and "}" if there are in plain text or in the value of a variable
+        # More info at http://manual.macromates.com/en/snippets#plain_text and http://manual.macromates.com/en/snippets#variables
+        code.gsub!(/\\`/, ':escape_backtick:')
+        code.gsub!(/\\\$/, ':escape_dollar:')
 
-      # Place holders, e.g. '${1: cool }'
-      place_holders = /\$\{((?>[^${}]+)|(\1))+\}/m
-      place_holders_matches = code.scan(place_holders)
-      place_holders_matches.flatten.each do |place_holder|
-        if place_holder
-          idx = place_holder.gsub(/([0-9]{1,5}):.+/,'\1')
-          code.gsub!(/\$\{#{place_holder}\}/m, ":place_holders#{idx}:")
+        i = 0
+        loop do
+          i += 1
+          break if !code.gsub!(/\{([^{}]*|[^{}]*\{[^{}]*\}[^{}]*)\\\}/, ':escape_bracket:\1:escape_close_bracket:') || i > 20
+        end        
+
+        code.gsub!(/\$([^{][^0-9]+[^:])/, ':dollar:\1') # Dollar, e.g. '$titi'
+
+        # Place holders, e.g. '${1: cool }'
+        place_holders = /\$\{((?>[^${}]+)|(\1))+\}/m
+        place_holders_matches = code.scan(place_holders)
+        place_holders_matches.flatten.each do |place_holder|
+          if place_holder
+            idx = place_holder.gsub(/([0-9]{1,5}):.+/,'\1')
+            code.gsub!(/\$\{#{place_holder}\}/m, ":place_holders#{idx}:")
+          end
         end
-      end
+        
 
-      # Nested place holders, e.g. '${1: ${3:cool} }'
+      #TODO Check if the regular expression in variables are correctly converted/supported
+      # More info at http://manual.macromates.com/en/regular_expressions.html
+
+      # Removed Nested place holders, e.g. '${1: ${3:cool} }' become ' ${3:cool} '
       nested_place_holders = /(\$\{[0-9]{1,5}:(([^${}]*(\$\{[0-9]{1,5}:|\{)[^${}]+\}[^${}]*)|[^${}]+)\})/m
       i = 0
       loop do
@@ -110,24 +127,37 @@ module SnippetsConverter
         break if !code.gsub!(nested_place_holders, '\2') || i > 20
       end
 
-      place_holders_matches.flatten.each do |place_holder|
-        if place_holder
-          idx = place_holder.gsub(/([0-9]{1,5}):.+/,'\1')
-          code.gsub!(/:place_holders#{idx}:/m, "\$\{#{place_holder}\}")
+      # Transform snippets converter internal codes into characters, e.g. ':dollar:' become '$'
+      
+        place_holders_matches.flatten.each do |place_holder|
+          if place_holder
+            idx = place_holder.gsub(/([0-9]{1,5}):.+/,'\1')
+            code.gsub!(/:place_holders#{idx}:/m, "\$\{#{place_holder}\}")
+          end
         end
-      end
+     
+        # Nested tab stops
+        code.gsub!(/:nested_tab_stop([0-9]{1,5}):/, '$\1')
+        nested_tab_stop = /(\$\{[0-9]{1,5}:([^${}]*\$[0-9]{1,5}[^${}]*)\})+/m
+        i = 0
+        loop do
+          i += 1
+          break if !code.gsub!(nested_tab_stop, '\2') || i > 20
+        end
 
-      # Nested tab stops
-      code.gsub!(/:nested_tab_stop([0-9]{1,5}):/, '$\1')
-      nested_tab_stop = /(\$\{[0-9]{1,5}:([^${}]*\$[0-9]{1,5}[^${}]*)\})+/m
-      i = 0
-      loop do
-        i += 1
-        break if !code.gsub!(nested_tab_stop, '\2') || i > 20
-      end
+        code.gsub!(/:tab_stop([0-9]{1,5}):/, '$\1')
 
-      code.gsub!(/:tab_stop([0-9]{1,5}):/, '$\1')
-      code.gsub!(/:dollar:/, '$')
+        code.gsub!(/:escape_backtick:/, '`')
+        code.gsub!(/:escape_dollar:/, '$')
+
+        i = 0
+        loop do
+          i += 1
+          break if !code.gsub!(/:escape_bracket:(.*):escape_close_bracket:/, '{\1}') || i > 20
+        end
+
+        code.gsub!(/:dollar:/, '$')      
+     
     end
 
     # Dummy methods, the current Editor module must override them
