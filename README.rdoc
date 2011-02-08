@@ -54,5 +54,5 @@ More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-gu
 
 Copyright (c) 2009 Nicolas Alpi
 
-Copyright (c) 2010 Nowhere Man. See LICENSE for details.
+Copyright (c) 2011 Nowhere Man. See LICENSE for details.
 
