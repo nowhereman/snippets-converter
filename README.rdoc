@@ -3,7 +3,7 @@
 Convert TextMate Snippets into Gedit, NetBeans and Ruble (Aptana Studio/RadRails 3) snippets.
 
 == Install the gem
- sudo gem snippets_converter
+ sudo gem install snippets_converter
 
 == How to use (for Ubuntu and Ruby snippets)
 * Open a terminal and go in your TextMate Bundle directory. Then run
