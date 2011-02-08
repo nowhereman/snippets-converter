@@ -27,9 +27,13 @@ module SnippetsConverter
       output = nil
       language = nil
       for file in Dir.glob("#{@in_folder}/**/*.tmSnippet")
-        puts "Converting #{file} to #{@editor} snippet..."
-        output = "#{output}#{convert(file)}"
-        language = parse_tm_snippet(file)[:language] unless language
+        if ( new_output = convert(file) )
+          puts "Converting '#{File.basename(file)}' to #{@editor} snippet..."
+          output = "#{output}#{new_output}"
+          language = parse_tm_snippet(file)[:language] unless language
+        else
+          puts "(WARNING): Unable to convert the snippet '#{File.basename(file)}'."
+        end
       end
       output = "#{editor_header(language)}#{output}#{editor_bottom}"
 
@@ -66,26 +70,28 @@ module SnippetsConverter
       end
 
       tm_snippet = {}
-      tm_snippet[:trigger] = arrString[arrKey.index('tabTrigger')]
-      tm_snippet[:code] = arrString[arrKey.index('content')]
-      tm_snippet[:description] = arrString[arrKey.index('name')]
-      tm_snippet[:language] = arrString[arrKey.index('scope')]
-
+      # The array, that contains the snippet info, must have all the keys below
+      if (['tabTrigger', 'content', 'name', 'scope'] - arrKey.uniq ).empty?
+        tm_snippet[:trigger] = arrString[arrKey.index('tabTrigger')]
+        tm_snippet[:code] = arrString[arrKey.index('content')]
+        tm_snippet[:description] = arrString[arrKey.index('name')]
+        tm_snippet[:language] = arrString[arrKey.index('scope')]
+      end
       tm_snippet
     end
 
     def convert(file)
       tm_snippet = parse_tm_snippet(file)
-
-      transform_snippet(tm_snippet[:code])
-      return editor_conversion(tm_snippet[:trigger], tm_snippet[:description], tm_snippet[:code])
-
+      if !tm_snippet.blank?
+        transform_snippet(tm_snippet[:code])
+        return editor_conversion(tm_snippet[:trigger], tm_snippet[:description], tm_snippet[:code])
+      end
     end
 
     # Nested tab stops and place holders remover, e.g '${1: ${3:cool} $2 }' become ' ${3:cool} $2 '
     def transform_snippet(code)
       # Transform TextMate snippets syntax into snippets converter internal codes, e.g. '$' become ':dollar:'
-      
+
         # Nested tab stops, e.g '${1: $2 }'
         nested_tab_stop = /((\$\{[0-9]{1,5}:[^${}]*)\$([0-9]{1,5})([^${}]*\}))+/m
         code.gsub!(nested_tab_stop, '\2:nested_tab_stop\3:\4')
@@ -101,7 +107,7 @@ module SnippetsConverter
         loop do
           i += 1
           break if !code.gsub!(/\{([^{}]*|[^{}]*\{[^{}]*\}[^{}]*)\\\}/, ':escape_bracket:\1:escape_close_bracket:') || i > 20
-        end        
+        end
 
         code.gsub!(/\$([^{][^0-9]+[^:])/, ':dollar:\1') # Dollar, e.g. '$titi'
 
@@ -114,7 +120,7 @@ module SnippetsConverter
             code.gsub!(/\$\{#{place_holder}\}/m, ":place_holders#{idx}:")
           end
         end
-        
+
 
       #TODO Check if the regular expression in variables are correctly converted/supported
       # More info at http://manual.macromates.com/en/regular_expressions.html
@@ -128,14 +134,14 @@ module SnippetsConverter
       end
 
       # Transform snippets converter internal codes into characters, e.g. ':dollar:' become '$'
-      
+
         place_holders_matches.flatten.each do |place_holder|
           if place_holder
             idx = place_holder.gsub(/([0-9]{1,5}):.+/,'\1')
             code.gsub!(/:place_holders#{idx}:/m, "\$\{#{place_holder}\}")
           end
         end
-     
+
         # Nested tab stops
         code.gsub!(/:nested_tab_stop([0-9]{1,5}):/, '$\1')
         nested_tab_stop = /(\$\{[0-9]{1,5}:([^${}]*\$[0-9]{1,5}[^${}]*)\})+/m
@@ -156,8 +162,8 @@ module SnippetsConverter
           break if !code.gsub!(/:escape_bracket:(.*):escape_close_bracket:/, '{\1}') || i > 20
         end
 
-        code.gsub!(/:dollar:/, '$')      
-     
+        code.gsub!(/:dollar:/, '$')
+
     end
 
     # Dummy methods, the current Editor module must override them
