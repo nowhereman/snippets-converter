@@ -37,7 +37,7 @@ This will convert all your Snippets in a XML file into the "out" folder of your 
 
  with_defaults :scope => "source.ruby" do |bundle|
 
-More info at https://radrails.tenderapp.com/faqs/radrails-3/ruble-programming-guide
+More info at http://wiki.appcelerator.org/display/tis/Rubles
 
 == Note on Patches/Pull Requests
 
