@@ -7,9 +7,9 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "snippets_converter"
     gem.summary = "Convert TextMate Snippets Gedit, NetBeans and Ruble (Aptana Studio) Snippets."
-    gem.description = "Quick and dirty code to transform TextMate Snippets into Gedit, NetBeans and Ruble (Aptana Studio) snippets"
+    gem.description = "Transform TextMate Snippets into Gedit, NetBeans and Ruble (Aptana Studio) snippets"
     gem.email = "nowhereman@open_office"
-    gem.homepage = "http://github.com/nowhereman/snippets_converter"
+    gem.homepage = "http://github.com/nowhereman/snippets-converter"
     gem.authors = ["Nowhere Man"]
     gem.add_dependency('activesupport', '< 3.0.0')
     # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for additional settings
